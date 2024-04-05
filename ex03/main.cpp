@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:23:36 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/05 11:14:27 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:33:44 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,22 @@ static float	_max(float x, float y, float z)
 
 static void	_dflt_demo(void)
 {
-	int		min_x, min_y, max_x, max_y;
-
 	Point	p1(0, 0);
 	Point	p2(1, 0);
 	Point	p3(0, 1);
+	float	pt_per_unit = 10;
+
+	float	min_x, min_y, max_x, max_y;
+	float	dx = 1 / pt_per_unit;
+	float	dy = dx;
 
 	min_x = _min(p1.x(), p2.x(), p3.x());
 	min_y = _min(p1.y(), p2.y(), p3.y());
 	max_x = _max(p1.x(), p2.x(), p3.x());
 	max_y = _max(p1.y(), p2.y(), p3.y());
-	for (int y = min_y; y <= max_y; y++)
+	for (float y = min_y; y <= max_y; y += dy)
 	{
-		for (int x = min_x; x <= max_x; x++)
+		for (float x = min_x; x <= max_x; x += dx)
 		{
 			if (Point::bsp(p1, p2, p3, Point(x, y)))
 				std::cout << "x";
