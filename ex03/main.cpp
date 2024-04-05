@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:23:36 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/05 11:33:44 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:49:19 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,15 @@ static float	_max(float x, float y, float z)
 	return (max);
 }
 
-static void	_dflt_demo(void)
+static void	_demo(Point p1, Point p2, Point p3)
 {
-	Point	p1(0, 0);
-	Point	p2(1, 0);
-	Point	p3(0, 1);
-	float	pt_per_unit = 10;
+	float	pt_per_unit = 16; //use 2^N
 
+	std::cout << "----------------FIGURE-----------------" << std::endl;
+	std::cout << "p1(" << p1.x() << ", " << p1.y() << ") " ;
+	std::cout << "p2(" << p2.x() << ", " << p2.y() << ") " ;
+	std::cout << "p3(" << p3.x() << ", " << p3.y() << ") " << std::endl;
+	std::cout << "---------------------------------------" << std::endl;
 	float	min_x, min_y, max_x, max_y;
 	float	dx = 1 / pt_per_unit;
 	float	dy = dx;
@@ -86,8 +88,12 @@ int main(int ac, char **av)
 {
 	(void)av;
 	if (1 == ac)
-		_dflt_demo();
-	// else
-	// 	main_fancy(ac, av);
+	{
+		_demo(Point(0, 0), Point(1, 0), Point(0, 1));
+		_demo(Point(0, 0), Point(3, 0), Point(0, 1));
+		_demo(Point(4, 0), Point(3, 0), Point(0, 1));
+		_demo(Point(0, 0), Point(0, 0), Point(0, 0));
+		_demo(Point(0, 0), Point(1, 1), Point(1, 1));
+	}
 	return 0;
 }
