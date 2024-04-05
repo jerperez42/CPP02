@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:23:36 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/05 11:49:19 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:57:06 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static float	_max(float x, float y, float z)
 
 static void	_demo(Point p1, Point p2, Point p3)
 {
-	float	pt_per_unit = 16; //use 2^N
+	float	pt_per_unit = 8; //use 2^N
 
 	std::cout << "----------------FIGURE-----------------" << std::endl;
 	std::cout << "p1(" << p1.x() << ", " << p1.y() << ") " ;
@@ -78,10 +78,11 @@ static void	_demo(Point p1, Point p2, Point p3)
 			if (Point::bsp(p1, p2, p3, Point(x, y)))
 				std::cout << "x";
 			else
-				std::cout << " ";
+				std::cout << ".";
 		}
 		std::cout << std::endl;
 	}
+	std::cout << std::endl;
 }
 
 int main(int ac, char **av)
