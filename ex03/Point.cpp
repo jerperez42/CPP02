@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:11:42 by jerperez          #+#    #+#             */
-/*   Updated: 2024/02/13 15:14:47 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:23:50 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,16 @@ float	Point::x(void) const
 float	Point::y(void) const
 {
 	return (this->_y.toFloat());
+}
+
+Fixed	Point::getX(void) const
+{
+	return (this->_x);
+}
+
+Fixed	Point::getY(void) const
+{
+	return (this->_y);
 }
 
 // void	Point::setX(Point const pt)

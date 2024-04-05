@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:23:36 by jerperez          #+#    #+#             */
-/*   Updated: 2024/02/13 15:33:05 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:14:27 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 // 	}
 // }
 
-float	ft_min(float x, float y, float z)
+static float	_min(float x, float y, float z)
 {
 	float min;
 
@@ -42,7 +42,7 @@ float	ft_min(float x, float y, float z)
 	return (min);
 }
 
-float	ft_max(float x, float y, float z)
+static float	_max(float x, float y, float z)
 {
 	float max;
 
@@ -54,18 +54,18 @@ float	ft_max(float x, float y, float z)
 	return (max);
 }
 
-void	main_dflt(void)
+static void	_dflt_demo(void)
 {
 	int		min_x, min_y, max_x, max_y;
 
-	Point	p1 = Point(0, 0);
-	Point	p2 = Point(1, 0);
-	Point	p3 = Point(0, 1);
+	Point	p1(0, 0);
+	Point	p2(1, 0);
+	Point	p3(0, 1);
 
-	min_x = ft_min(p1.x(), p2.x(), p3.x());
-	min_y = ft_min(p1.y(), p2.y(), p3.y());
-	max_x = ft_max(p1.x(), p2.x(), p3.x());
-	max_y = ft_max(p1.y(), p2.y(), p3.y());
+	min_x = _min(p1.x(), p2.x(), p3.x());
+	min_y = _min(p1.y(), p2.y(), p3.y());
+	max_x = _max(p1.x(), p2.x(), p3.x());
+	max_y = _max(p1.y(), p2.y(), p3.y());
 	for (int y = min_y; y <= max_y; y++)
 	{
 		for (int x = min_x; x <= max_x; x++)
@@ -83,7 +83,7 @@ int main(int ac, char **av)
 {
 	(void)av;
 	if (1 == ac)
-		main_dflt();
+		_dflt_demo();
 	// else
 	// 	main_fancy(ac, av);
 	return 0;
