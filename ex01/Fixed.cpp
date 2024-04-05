@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:11:42 by jerperez          #+#    #+#             */
-/*   Updated: 2024/02/12 15:33:27 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/05 11:04:53 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,14 @@ int Fixed::toInt(void) const
 
 Fixed::Fixed(const int i)
 {
+	std::cout << "Int constructor called" << std::endl;
 	this->_raw = i << FRC_NBIT;
 }
 
 
 Fixed::Fixed(const float f)
 {
+	std::cout << "Float constructor called" << std::endl;
 	//raw_int = (int)(value * 2^(_frac))
 	this->_raw = round(f * (1 << this->_frc));
 }
